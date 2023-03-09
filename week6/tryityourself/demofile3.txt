@@ -1,0 +1,1 @@
+to delete a file use os.remove
