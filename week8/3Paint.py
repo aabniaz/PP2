@@ -16,7 +16,7 @@ def main():
         'green': (0, 255, 0),
         'black' : (0,0,0)
     }
-    #creating functions to draw rectangle, circle and line
+    #creating functions to draw rectangle, circle
     def rec(x1,y1,z1,w1):
         pygame.draw.rect(screen,(255,255,255),[x1,y1,z1,w1],radius)
     def elo(x1,y1,z1,w1):
