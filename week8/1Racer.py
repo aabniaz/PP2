@@ -122,7 +122,7 @@ while True:
             sys.exit()  
     DISPLAYSURF.blit(background, (0,0))
     scores2 = font_small.render(str(SCORE2), True, BLACK)
-    DISPLAYSURF.blit(scores2, (370,10))
+    DISPLAYSURF.blit(scores2, (370,10)) #coins will show up at the right corner
     
     #Moves and Re-draws all Sprites
     for entity in all_sprites:
@@ -138,15 +138,15 @@ while True:
 
     if pygame.sprite.spritecollideany(P1, enemies):
         DISPLAYSURF.fill(RED)
-        DISPLAYSURF.blit(game_over, (80,200))
-        DISPLAYSURF.blit(game_over1, (80, 300))
+        DISPLAYSURF.blit(game_over, (80,200))   #game_over, location for it
+        DISPLAYSURF.blit(game_over1, (80, 300)) #game_over1, location for it
        
         pygame.display.update()
         for entity in all_sprites:
             entity.kill() 
-        time.sleep(2)
+        time.sleep(2) #game over window will show up for 2 seconds
         pygame.quit()
         sys.exit()        
          
-    pygame.display.update()
+    pygame.display.update() #refresh game screen
     FramePerSec.tick(FPS)

@@ -15,12 +15,12 @@ blue = pygame.Color(0, 0, 255)
 
 pygame.init()   #initialising
 
-pygame.display.set_caption('Snake')    #Initialising the game window
+pygame.display.set_caption('Snake')    #initialising the game window
 game_window = pygame.display.set_mode((window_x, window_y))
 
 fps = pygame.time.Clock()   #FPS (frames per second) controller
 
-snake_position = [100, 50]  # Define the default position of the snake
+snake_position = [100, 50]  # define the default position of the snake
 
 snake_body = [[100, 50],    # defining the first 4 blocks of the snake's body
               [90, 50],
@@ -40,16 +40,16 @@ score = 0   # initial values
 level = 0
 x = 0
 
-def show_score(choice, color, font, size):  # function for Score
+def Score(choice, color, font, size):  # function for Score
     score_font = pygame.font.SysFont(font, size)    #creating a score_font font object
     score_surface = score_font.render('Score: ' + str(score), True, color) #creating a display surface object
     score_rect = score_surface.get_rect()   #create font object score_font
     game_window.blit(score_surface, score_rect) #display text
 
-def show_level(choice, color, font, size): # function for levels
+def Level(choice, color, font, size): # function for levels
     score_font = pygame.font.SysFont(font, size)    #create a score_font font object
     score_surface = score_font.render('Level : ' + str(level), True, color)
-    score_rect = score_surface.get_rect(topright=(650,0))
+    score_rect = score_surface.get_rect(topright=(650,0)) 
     game_window.blit(score_surface, score_rect)
 
 def game_over() : ## game over function
@@ -66,10 +66,9 @@ def game_over() : ## game over function
     pygame.display.flip()
     pygame.display.update()
          
-    time.sleep(5)
+    time.sleep(3)
     pygame.quit()
     quit()
-
 
 # Main Function
 while True :
@@ -103,7 +102,7 @@ while True :
     if direction == 'RIGHT' :
         snake_position[0] += 10
 
-# A snake's body growth mechanism,if fruit and snakes collide, points will be increased by 10
+# A snake's body growth mechanism,if fruit and snakes collide, scores will be increased by 1
     snake_body.insert(0, list(snake_position))
     if snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1] :
         score += 1
@@ -118,10 +117,10 @@ while True :
     fruit_spawn = True
     game_window.fill(black)
     
-    if score==x+40:
-        snake_speed+=5
+    if score==x+4: #every time score +4, snake's speed increases to 5
+        snake_speed+=5 
         level+=1
-        x+=40
+        x+=4
 
     for pos in snake_body :
         pygame.draw.rect(game_window, green,
@@ -134,14 +133,13 @@ while True :
     if snake_position[1] < 0 or snake_position[1] > window_y - 10 :
         game_over()
 
-    for block in snake_body[1 :] :
+    for block in snake_body[1 :]: #touching the snake body
         if snake_position[0] == block[0] and snake_position[1] == block[1] :
             game_over()
 
     # displaying score and level countinuously
-    show_score(1, white, 'algerian', 30)
-    show_level(1, white, 'algerian', 30)
+    Score(1, white, 'algerian', 30)
+    Level(1, white, 'algerian', 30)
 
-    pygame.display.update()
-
-    fps.tick(snake_speed)
+    pygame.display.update() #refresh game screen
+    fps.tick(snake_speed)   #frame per second/refresh rate

@@ -52,17 +52,17 @@ def main():
                     radius -= 1     #for changing size
                 if event.key == pygame.K_UP:
                     radius += 1
-                if event.key == pygame.K_a: #rect
-                    x1 = int(input())
-                    y1 = int(input())
-                    z1 = int(input())
-                    w1 = int(input())
+                if event.key == pygame.K_a: #rectangle
+                    x1 = int(input())   #x-axis
+                    y1 = int(input())   #y-axis
+                    z1 = int(input())   #width (y)
+                    w1 = int(input())   #length  (x)
                     rec(x1,y1,z1,w1)
-                if event.key == pygame.K_s: #cicle
-                    x1 = int(input())
-                    y1 = int(input())
-                    z1 = int(input())
-                    w1 = int(input())
+                if event.key == pygame.K_s: #circle
+                    x1 = int(input())   #x-axis
+                    y1 = int(input())   #y-axis
+                    z1 = int(input())   #diameter (y)
+                    w1 = int(input())   #diameter (x)    
                     elo(x1,y1,z1,w1)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if mode == 'random':
@@ -80,6 +80,6 @@ def main():
                 last_pos = event.pos
         pygame.display.flip()
 
-    pygame.quit()
+    pygame.quit() #quit
 
 main()
