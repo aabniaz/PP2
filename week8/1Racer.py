@@ -27,7 +27,6 @@ SCORE2 = 0 #for coin
 #Setting up Fonts
 font = pygame.font.SysFont("Verdana", 30)
 font_small = pygame.font.SysFont("Verdana", 20)
-#game_over = font.render("Game Over" + "Your Score: " + str(scores2), True, BLACK)
 
 background = pygame.image.load("images\AnimatedStreet.png")
  
@@ -138,8 +137,8 @@ while True:
 
     if pygame.sprite.spritecollideany(P1, enemies):
         DISPLAYSURF.fill(RED)
-        DISPLAYSURF.blit(game_over, (80,200))   #game_over, location for it
-        DISPLAYSURF.blit(game_over1, (80, 300)) #game_over1, location for it
+        DISPLAYSURF.blit(game_over, (80,200))   #game_over <- location for it
+        DISPLAYSURF.blit(game_over1, (80, 300)) #game_over1 <- location for it
        
         pygame.display.update()
         for entity in all_sprites:
