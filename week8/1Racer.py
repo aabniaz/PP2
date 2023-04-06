@@ -132,16 +132,7 @@ while True:
     if pygame.sprite.spritecollideany(P1, coins): 
         SCORE2 += 1 #to add +1 score for every coin achieved
         continue
-    if SCORE2 >= 5: #when score reaches >=5, speed will be = to 5
-        SPEED = 5
-    if SCORE2 >= 10:
-        SPEED = 8
-    if SCORE2 >= 20:
-        SPEED = 12
-    if SCORE2 >= 30:
-        SPEED = 30
-        SPEED2 = 10
-
+    
     game_over = font.render("Game Over!", True, BLACK)
     game_over1 = font.render("Your Score: "+  str(SCORE2), True, BLACK)
 
