@@ -21,8 +21,6 @@ def main():
         pygame.draw.rect(screen,(255,255,255),[x1,y1,z1,w1],radius)
     def elo(x1,y1,z1,w1):
         pygame.draw.ellipse(screen,(255,255,255),[x1,y1,z1,w1],radius)
-    def tr(x1,y1,z1,w1):
-        pygame.draw.lines(screen, (255,255,255), [x1,y1],[z1, w1], radius)
        
     done = False
     while not done:
@@ -66,12 +64,6 @@ def main():
                     z1 = int(input())
                     w1 = int(input())
                     elo(x1,y1,z1,w1)
-                if event.key == pygame.K_p: #line
-                    x1 = int(input())
-                    y1 = int(input())
-                    z1 = int(input())
-                    w1 = int(input())
-                    tr(x1,y1,z1,w1)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if mode == 'random':
                     color = (random.randrange(256), random.randrange(256), random.randrange(256))
